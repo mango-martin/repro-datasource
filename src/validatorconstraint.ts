@@ -1,5 +1,4 @@
-import { Injectable } from '@nestjs/common';
-import { InjectConnection } from '@nestjs/typeorm';
+import { Inject, Injectable } from '@nestjs/common';
 import {
   registerDecorator,
   ValidationOptions,
@@ -11,7 +10,7 @@ import { DataSource } from 'typeorm';
 @ValidatorConstraint()
 @Injectable()
 export class SomeConstraint implements ValidatorConstraintInterface {
-  constructor(private _dataSource: DataSource) {
+  constructor(@Inject(DataSource) private _dataSource: DataSource) {
     console.warn(_dataSource);
   }
 

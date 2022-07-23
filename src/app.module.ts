@@ -6,12 +6,8 @@ import { AppService } from './app.service';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'root',
-      database: 'test',
+      type: 'sqlite',
+      database: 'test.db',
     }),
   ],
   controllers: [AppController],
